@@ -35,6 +35,21 @@ export namespace MultiAtlases {
       }
     }
   }
+  export namespace Popup {
+    export class Atlas {
+      public static Name: string = 'popup';
+      public static AtlasURL: string = 'assets/multi-atlases/popup.json';
+      public static TextureURL: string = 'assets/multi-atlases/';
+    }
+    export namespace Atlas {
+      export enum Frames {
+        PopupBackground = 'popup/background.png',
+        PopupIcon = 'popup/icon.png',
+        PopupRectangle88 = 'popup/Rectangle 88.png',
+        PopupRectangle89 = 'popup/Rectangle 89.png',
+      }
+    }
+  }
 }
 export namespace Scripts {}
 export namespace Shaders {}
