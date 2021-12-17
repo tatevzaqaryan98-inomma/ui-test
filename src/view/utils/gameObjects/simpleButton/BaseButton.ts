@@ -1,4 +1,4 @@
-import { ExtendedText } from '@rollinsafary/phaser3-i18n-plugin';
+import ExtendedText from '@rollinsafary/phaser3-i18n-plugin/lib/extensions/ExtendedText';
 import BaseScene from '../../../scenes/BaseScene';
 import { StringIndexedObject } from '../../phaser/CustomTypes';
 import { IButtonState } from './ButtonState';
