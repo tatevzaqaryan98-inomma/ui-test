@@ -9,6 +9,11 @@ export default class GameSceneMediator extends BaseSceneMediator<GameScene> {
     super(GameSceneMediator.NAME, null);
   }
 
+  public onRegister(): void {
+    this.setView();
+    super.onRegister();
+  }
+
   public registerNotificationInterests(): void {
     this.subscribeToNotifications(BootScene.LOAD_COMPLETE_NOTIFICATION);
   }
@@ -16,7 +21,7 @@ export default class GameSceneMediator extends BaseSceneMediator<GameScene> {
   public handleNotification(notificationName: string): void {
     switch (notificationName) {
       case BootScene.LOAD_COMPLETE_NOTIFICATION:
-        this.setView();
+        this.startScene();
         break;
       default:
         this.handleDefaultNotifications(notificationName);

@@ -24,6 +24,7 @@ export default class BaseScene extends I18nScene {
   public static get WOKE_NOTIFICATION(): string {
     return `${this.name}Woke`;
   }
+
   public static PLAY_SFX_NOTIFICATION: string = `${BaseScene.NAME}PlaySfx`;
   public static STOP_SFX_NOTIFICATION: string = `${BaseScene.NAME}StopSfx`;
   public static PLAY_SFX_EVENT: string = `playSfx`;
