@@ -27,18 +27,13 @@ export default class BootSceneMediator extends BaseSceneMediator<BootScene> {
   private async onBootComplete(): Promise<void> {
     this.sceneManager.stop(BootScene.NAME);
     this.sceneManager.remove(BootScene.NAME);
-    this.facade.sendNotification(BootScene.BOOT_COMPLETE_NOTIFICATION);
+    this.facade.sendNotification(BootScene.LOAD_COMPLETE_NOTIFICATION);
   }
 
   protected setView(): void {
-    const bootScene: BootScene = new BootScene();
-    this.sceneManager.add(BootScene.NAME, bootScene);
-    this.setViewComponent(bootScene);
-    this.viewComponent.events.on(
-      BootScene.BOOT_COMPLETE_EVENT,
-      this.onBootComplete,
-      this,
-    );
+    const scene: BootScene = new BootScene();
+    this.sceneManager.add(BootScene.NAME, scene);
+    this.setViewComponent(scene);
     this.sceneManager.start(BootScene.NAME);
   }
 
