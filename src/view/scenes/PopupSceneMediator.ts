@@ -5,8 +5,8 @@ import PopupScene from './PopupScene';
 export default class PopupSceneMediator extends BaseSceneMediator<PopupScene> {
   public static NAME: string = 'PopupSceneMediator';
   protected popupManager: PopupManager;
-  constructor(viewComponent?: PopupScene) {
-    super(PopupSceneMediator.NAME, viewComponent);
+  constructor() {
+    super(PopupSceneMediator.NAME, null);
     this.popupManager = PopupManager.getInstance();
   }
 
@@ -47,6 +47,7 @@ export default class PopupSceneMediator extends BaseSceneMediator<PopupScene> {
     const scene: PopupScene = new PopupScene();
     this.sceneManager.add(PopupScene.NAME, scene);
     this.setViewComponent(scene);
+    PopupManager.scene = this.viewComponent;
     await this.startScene();
     this.sceneManager.sleep(PopupScene.NAME);
     super.setView();
