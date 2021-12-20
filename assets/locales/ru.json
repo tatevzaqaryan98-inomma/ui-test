@@ -1,1 +1,5 @@
-{}
+{
+  "popup.challenge.button.challenge": "Челендж",
+  "popup.challenge.button.cancel": "Отмена",
+  "popup.challenge.subtitle": "Еустовый тест"
+}

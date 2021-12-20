@@ -6,6 +6,7 @@ export abstract class BasePopupButton<
   T extends Phaser.GameObjects.Sprite | NinePatch,
 > extends Phaser.GameObjects.Container {
   protected background?: T;
+  protected icon: Phaser.GameObjects.Sprite;
   protected text?: ExtendedText;
 
   constructor(public scene: BaseScene, protected config: IMenuButtonConfig) {
@@ -37,13 +38,13 @@ export abstract class BasePopupButton<
     this.text.setOrigin(0, 0.5);
     this.add(this.text);
   }
-  //   protected setPositions(): void {
-  //     console.warn(this.background.width, this.background.displayWidth);
-  //     this.icon.x = !!this.config.text
-  //       ? -this.width * 0.5 + this.icon.width * 0.5
-  //       : 0;
-  //     !!this.text && (this.text.x = this.icon.x + this.icon.width * 0.7);
-  //   }
+  protected setPositions(): void {
+    console.warn(this.background.width, this.background.displayWidth);
+    this.icon.x = !!this.config.text
+      ? -this.width * 0.5 + this.icon.width * 0.5
+      : 0;
+    !!this.text && (this.text.x = this.icon.x + this.icon.width * 0.7);
+  }
   protected setListeners(): void {}
 }
 

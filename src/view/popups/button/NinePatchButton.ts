@@ -1,11 +1,12 @@
 // import { NinePatch } from '@rollinsafary/phaser3-ninepatch-plugin';
+// import BaseScene from '../../scenes/BaseScene';
 // import { BasePopupButton } from './BasePopupButton';
 
 // export class MenuNinePatchButton extends BasePopupButton<NinePatch> {
 //   constructor(scene: BaseScene, public config: IMnuNinePatchButtonConfig) {
 //     super(scene, config);
 //   }
-
+//   protected createBackground(): void {}
 //   protected createComponents(): void {
 //     super.createComponents();
 //     const backgroundWidth: number =

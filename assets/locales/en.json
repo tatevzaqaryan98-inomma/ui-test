@@ -1,1 +1,9 @@
-{}
+{
+  "popup.challenge.button.challenge": "Challenge",
+  "popup.challenge.button.cancel": "Cancel",
+  "popup.challenge.subtitle": "Are You Sure You Want to Challenge the Opponent",
+  "popup.swap.subtitle": "Select Tiles to Swap",
+  "popup.swap.button.swap": "Swap & Pass",
+  "popup.swap.button.cancel": "Cancel",
+  "popup.swap.subtitle1": "3 Selected"
+}

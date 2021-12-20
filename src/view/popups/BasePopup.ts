@@ -1,8 +1,10 @@
+import { NinePatch } from '@rollinsafary/phaser3-ninepatch-plugin';
 import { MultiAtlases } from '../../assets';
 import { gameConfig } from '../../constants/GameConfig';
 import Game from '../../Game';
 import BaseScene from '../scenes/BaseScene';
 import PopupScene from '../scenes/PopupScene';
+import { ITextureConfig } from '../utils/phaser/CustomTypes';
 
 export default class BasePopup extends Phaser.GameObjects.Container {
   public static NAME: string = 'BasePopup';
@@ -22,7 +24,8 @@ export default class BasePopup extends Phaser.GameObjects.Container {
   public blocker: Phaser.GameObjects.Image;
   public isAlivePromise: Promise<void>;
   public showPromise: Promise<void>;
-  protected closeButton: Phaser.GameObjects.GameObject;
+  public scene: BaseScene;
+  protected cancelButton: Phaser.GameObjects.GameObject;
 
   constructor() {
     super(
@@ -158,16 +161,35 @@ export default class BasePopup extends Phaser.GameObjects.Container {
     key: string,
     frame: string,
   ): Phaser.GameObjects.Image {
-    const config: any = {
+    const config: ITextureConfig = {
       key,
       frame,
     };
-    const bg: Phaser.GameObjects.Image = this.scene.make.image(config, false);
-    bg.setInteractive();
-    this.add(bg);
+    const background = this.scene.make.image(config, false);
+    background.setInteractive();
+    this.add(background);
 
-    this.setSize(bg.width, bg.height);
-    return bg;
+    this.setSize(background.width, background.height);
+    return background;
+  }
+
+  protected createBackgroundNinePatch(
+    key: string,
+    frame: string,
+    width: number,
+    height: number,
+  ): NinePatch {
+    const background = this.scene.make.ninePatch({
+      x: 0,
+      y: 0,
+      key,
+      frame,
+      width,
+      height,
+    });
+    this.add(background);
+    this.setSize(background.width, background.height);
+    return background;
   }
 
   protected createBlockerImage(
@@ -206,7 +228,7 @@ export default class BasePopup extends Phaser.GameObjects.Container {
     this.blocker.input.enabled = false;
   }
 
-  protected createCancelButton(
+  protected createCancelButtonBackground(
     key: string,
     frame: string,
     x: number = this.width * 0.5,

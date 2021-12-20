@@ -4,24 +4,25 @@ import { MultiAtlases } from '../../assets';
 import { Translation } from '../../translations';
 import BasePopup from './BasePopup';
 
-export class Popup extends BasePopup {
-  public static NAME: string = 'Popup';
-
+export class PopupSwap extends BasePopup {
+  public static NAME: string = 'PopupSwap';
   protected background: NinePatch;
+  public icon: Phaser.GameObjects.Image;
+  protected subTitle: ExtendedText;
+  protected subTitle1: ExtendedText;
+  protected swapButton: Phaser.GameObjects.Image;
   protected cancelButton: Phaser.GameObjects.Image;
-  protected challengeButton: Phaser.GameObjects.Image;
-  protected icon: Phaser.GameObjects.Image;
   protected cancelButtonText: ExtendedText;
-  protected challengeButtonText: ExtendedText;
-  protected subtitle: ExtendedText;
+  protected swapButtonText: ExtendedText;
 
   protected createComponents(): void {
     this.setScale(2);
     this.createBackground();
     this.createIcon();
-    this.createSubtitle();
+    this.createSubTitle();
+    this.createSubTitle1();
     this.createCancelButton();
-    this.createChallengeButton();
+    this.createSwapButton();
     this.recalculateSizes();
     this.setListeners();
   }
@@ -40,24 +41,35 @@ export class Popup extends BasePopup {
       x: 0,
       y: 0,
       key: MultiAtlases.Popup.Atlas.Name,
-      frame: MultiAtlases.Popup.Atlas.Frames.PopupIcon,
+      frame: MultiAtlases.Popup.Atlas.Frames.PopupIcon1,
     });
     this.add(this.icon);
   }
-  protected createSubtitle(): void {
-    const style: Phaser.Types.GameObjects.Text.TextStyle = {
-      fontSize: '20px',
-    };
-    this.subtitle = this.scene.make.extText({
+  protected createSubTitle(): void {
+    const style: Phaser.Types.GameObjects.Text.TextStyle = { fontSize: '20px' };
+    this.subTitle = this.scene.make.extText({
       x: 0,
       y: 0,
-      text: Translation.POPUP_CHALLENGE_SUBTITLE,
+      text: Translation.POPUP_SWAP_SUBTITLE,
       style,
     });
-    this.subtitle.setOrigin(0.5, 0);
-    this.add(this.subtitle);
-    this.subtitle.setWordWrapWidth(this.width * 0.9);
-    this.subtitle.setAlign('center');
+    this.subTitle.setOrigin(0.5, 0);
+    this.add(this.subTitle);
+    this.subTitle.setWordWrapWidth(this.width * 0.9);
+    this.subTitle.setAlign('center');
+  }
+  protected createSubTitle1(): void {
+    const style: Phaser.Types.GameObjects.Text.TextStyle = { fontSize: '15px' };
+    this.subTitle1 = this.scene.make.extText({
+      x: 0,
+      y: 0,
+      text: Translation.POPUP_SWAP_SUBTITLE1,
+      style,
+    });
+    this.subTitle1.setOrigin(0.5, 0);
+    this.add(this.subTitle1);
+    this.subTitle1.setWordWrapWidth(this.width * 0.9);
+    this.subTitle1.setAlign('center');
   }
 
   protected createCancelButton(): void {
@@ -82,39 +94,38 @@ export class Popup extends BasePopup {
     this.cancelButtonText = this.scene.make.extText({
       x: 0,
       y: 0,
-      text: Translation.POPUP_CHALLENGE_BUTTON_CANCEL,
+      text: Translation.POPUP_SWAP_BUTTON_CANCEL,
       style,
     });
     this.cancelButtonText.setOrigin(0.5);
     this.add(this.cancelButtonText);
   }
-
-  protected createChallengeButton(): void {
-    this.createChallengeButtonBackground();
-    this.createChallengeButtonText();
+  protected createSwapButton() {
+    this.createSwapButtonBackground();
+    this.createSwapButtonText();
   }
-  protected createChallengeButtonBackground(): void {
-    this.challengeButton = this.scene.make.image({
+  protected createSwapButtonBackground(): void {
+    this.swapButton = this.scene.make.image({
       x: 0,
       y: 0,
       key: MultiAtlases.Popup.Atlas.Name,
       frame: MultiAtlases.Popup.Atlas.Frames.PopupChallenge,
     });
-    this.add(this.challengeButton);
+    this.add(this.swapButton);
   }
 
-  protected createChallengeButtonText(): void {
+  protected createSwapButtonText(): void {
     const style: Phaser.Types.GameObjects.Text.TextStyle = {
       fontSize: '20px',
     };
-    this.challengeButtonText = this.scene.make.extText({
-      x: this.challengeButton.x,
-      y: this.challengeButton.y,
-      text: Translation.POPUP_CHALLENGE_BUTTON_CHALLENGE,
+    this.swapButtonText = this.scene.make.extText({
+      x: 0,
+      y: 0,
+      text: Translation.POPUP_SWAP_BUTTON_SWAP,
       style,
     });
-    this.challengeButtonText.setOrigin(0.5);
-    this.add(this.challengeButtonText);
+    this.swapButtonText.setOrigin(0.5);
+    this.add(this.swapButtonText);
   }
 
   protected recalculateSizes(): void {
@@ -122,9 +133,11 @@ export class Popup extends BasePopup {
       30 +
       this.icon.height +
       20 +
-      this.subtitle.height +
+      this.subTitle.height +
       20 +
-      this.challengeButton.height +
+      this.subTitle1.height +
+      20 +
+      this.swapButton.height +
       20 +
       this.cancelButton.height +
       30;
@@ -132,21 +145,25 @@ export class Popup extends BasePopup {
     this.setSize(this.background.width, this.background.height);
     this.setPositions();
   }
-
   protected setPositions(): void {
     this.icon.y = -this.height * 0.5 + this.icon.height * 0.5 + 30;
-    this.subtitle.y = this.icon.y + this.icon.height * 0.5 + 20;
+    this.subTitle.y = this.icon.y + this.icon.height * 0.5 + 20;
+    this.subTitle1.y = this.subTitle.y + this.subTitle.height * 0.5 + 20;
+    this.subTitle1.x = this.cancelButtonText.x;
     this.cancelButton.y =
       this.height * 0.5 - this.cancelButton.height * 0.5 - 20;
     this.cancelButtonText.x = this.cancelButton.x;
-    this.cancelButtonText.y = this.cancelButton.y;
-    this.challengeButton.y =
+    this.swapButtonText.y = this.cancelButton.y;
+    this.swapButton.y =
       this.cancelButton.y -
       this.cancelButton.height * 0.5 -
-      this.challengeButton.height * 0.5 -
+      this.swapButton.height * 0.5 -
       20;
-    this.challengeButtonText.x = this.challengeButton.x;
-    this.challengeButtonText.y = this.challengeButton.y;
+    this.swapButtonText.x = this.swapButton.x;
+    this.swapButtonText.y = this.swapButton.y;
+    this.cancelButtonText.y = this.height * 0.5 + this.icon.height * 0.5 - 30;
+    this.cancelButtonText.x = this.cancelButton.x;
+    this.cancelButtonText.y = this.cancelButton.y;
   }
 
   protected setListeners(): void {
@@ -155,18 +172,5 @@ export class Popup extends BasePopup {
       this.recalculateSizes,
       this,
     );
-  }
-
-  protected removeListeners(): void {
-    this.scene.i18n.off(
-      I18nPlugin.LANGUAGE_CHANGED_EVENT,
-      this.recalculateSizes,
-      this,
-    );
-  }
-
-  public destroy(fromScene?: boolean): void {
-    this.removeListeners();
-    super.destroy(fromScene);
   }
 }

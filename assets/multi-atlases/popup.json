@@ -4,11 +4,95 @@
 			"image": "popup-0.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 398,
-				"h": 398
+				"w": 420,
+				"h": 420
 			},
 			"scale": 1,
 			"frames": [
+				{
+					"filename": "popup/icon.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					}
+				},
+				{
+					"filename": "popup/icon1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					},
+					"frame": {
+						"x": 64,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					}
+				},
+				{
+					"filename": "popup/challenge.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 212,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 212,
+						"h": 42
+					},
+					"frame": {
+						"x": 128,
+						"y": 0,
+						"w": 212,
+						"h": 42
+					}
+				},
+				{
+					"filename": "popup/cancel.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 36
+					},
+					"frame": {
+						"x": 0,
+						"y": 64,
+						"w": 220,
+						"h": 36
+					}
+				},
 				{
 					"filename": "popup/background.png",
 					"rotated": false,
@@ -25,72 +109,9 @@
 					},
 					"frame": {
 						"x": 0,
-						"y": 0,
+						"y": 100,
 						"w": 268,
 						"h": 320
-					}
-				},
-				{
-					"filename": "popup/icon.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 48,
-						"h": 48
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 48,
-						"h": 48
-					},
-					"frame": {
-						"x": 268,
-						"y": 0,
-						"w": 48,
-						"h": 48
-					}
-				},
-				{
-					"filename": "popup/Rectangle 88.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 220,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 220,
-						"h": 36
-					},
-					"frame": {
-						"x": 0,
-						"y": 320,
-						"w": 220,
-						"h": 36
-					}
-				},
-				{
-					"filename": "popup/Rectangle 89.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 212,
-						"h": 42
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 212,
-						"h": 42
-					},
-					"frame": {
-						"x": 0,
-						"y": 356,
-						"w": 212,
-						"h": 42
 					}
 				}
 			]
@@ -99,6 +120,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:23604ac30af5b0a3b100ce990611a563:276d07a823298750d7048d2e70c4e63d:bd270223a1785572c931a0180a6e0c53$"
+		"smartupdate": "$TexturePacker:SmartUpdate:ae5780e9f3df9866a936dbf54963c498:3f17368541713a6723ce0c58e8ebb4e5:bd270223a1785572c931a0180a6e0c53$"
 	}
 }

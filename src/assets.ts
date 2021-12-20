@@ -13,13 +13,13 @@ export namespace Locales {
     public static Name: string = 'en';
     public static FileURL: string = 'assets/locales/en.json';
     public static Extension: string = '.json';
-    public static Size: string = '4';
+    public static Size: string = '185';
   }
   export class Ru {
     public static Name: string = 'ru';
     public static FileURL: string = 'assets/locales/ru.json';
     public static Extension: string = '.json';
-    public static Size: string = '4';
+    public static Size: string = '174';
   }
 }
 export namespace MultiAtlases {
@@ -43,10 +43,11 @@ export namespace MultiAtlases {
     }
     export namespace Atlas {
       export enum Frames {
-        PopupBackground = 'popup/background.png',
         PopupIcon = 'popup/icon.png',
-        PopupRectangle88 = 'popup/Rectangle 88.png',
-        PopupRectangle89 = 'popup/Rectangle 89.png',
+        PopupIcon1 = 'popup/icon1.png',
+        PopupChallenge = 'popup/challenge.png',
+        PopupCancel = 'popup/cancel.png',
+        PopupBackground = 'popup/background.png',
       }
     }
   }

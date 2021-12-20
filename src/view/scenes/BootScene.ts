@@ -1,5 +1,5 @@
-import { MultiAtlases } from '../../assets';
-import { loadMultiAtlases } from '../utils/assetLoader';
+import { Locales, MultiAtlases } from '../../assets';
+import { loadJSONs, loadMultiAtlases } from '../utils/assetLoader';
 import BaseScene from './BaseScene';
 
 export default class BootScene extends BaseScene {
@@ -17,6 +17,7 @@ export default class BootScene extends BaseScene {
 
   public preload(): void {
     loadMultiAtlases(this, MultiAtlases);
+    loadJSONs(this, Locales);
   }
 
   public create(): void {
